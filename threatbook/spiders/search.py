@@ -13,7 +13,7 @@ class SearchSpider(scrapy.Spider):
     name = 'search'
     allowed_domains = ['threatbook.cn']
     r = Redis(decode_responses=True)
-    indices = ["ip", "tb-intelligence", "open-intelligence", "event", "sample", "url", 
+    indices = ["ip", "tb-intelligence", "open-intelligence", "event", "sample", "url",
                 "reverseIpDomain", "ip/historyDomain", "ip/rdns",
                 "ip/port",
                 "ipSignature",
@@ -32,7 +32,7 @@ class SearchSpider(scrapy.Spider):
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36",
         },
     }
-    
+
     def start_requests(self):
         members = self.r.smembers("threatbook:threat")
         for member in members:

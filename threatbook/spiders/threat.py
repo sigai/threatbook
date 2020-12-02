@@ -11,7 +11,7 @@ class ThreatSpider(scrapy.Spider):
     name = 'threat'
     allowed_domains = ['threatbook.cn']
     r = Redis(decode_responses=True)
-    
+
     def start_requests(self):
         for i in range(1000, 1700):
             url = f"https://x.threatbook.cn/nodev4/vb4/article?threatInfoID={i}"
